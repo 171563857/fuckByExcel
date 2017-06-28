@@ -2,28 +2,28 @@ poi操作
 =======
 
 创建一个excel关联对象HSSFWorkbook：
-```
+```Java
 HSSFWorkbook book = new HSSFWorkbook();
 ```
 
 创建一个sheet：
-```
+```Java
 HSSFSheet st = book.createSheet("sheet1");
 ```     
 
 创建第i行：
-```
+```Java
 HSSFRow row = st.createRow(i);
 ```
 
 创建第i行的j列：
-```
+```Java
 HSSFCell cell = row.createCell(j);
 ```
 
 设置cell属性
 给单元格设置边框属性：
-```
+```Java
 HSSFCellStyle style = book.createCellStyle();
 // 左右上下边框样式
 style.setBorderLeft(HSSFCellStyle.BORDER_THIN);
@@ -38,37 +38,37 @@ style.setBottomBorderColor(HSSFColor.BLACK.index);
 ```
     
 给单元格设置背景：
-```
+```Java
 style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);// 设置了背景色才有效果
 style.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
 ```
 
 给单元格设置字体：
-```
+```Java
 // 单元格字体
 HSSFFont font = book.createFont();
 font.setFontName("宋体");
 ```
 
 设置字体以后，需要把字体加入到style中：
-```
+```Java
 style.setFont(font);
 ```
 
 设置好单元格属性以后，需要这种属性的单元格就可以调用此style：
-```
+```Java
 cell.setCellStyle(style);
 ```
 
 设置sheet表单的列宽：
-```
+```Java
 st.setColumnWidth(i, cellWidths.get(i).intValue() * 160);
 ```
 
 列宽的设置方法在HSSFSheet中，方法参数：第一个参数表示第几列，从0开始数；第二个参数表示宽度为多少，大小由使用者调整。
 
 合并单元格：
-```
+```Java
 st.addMergedRegion(new CellRangeAddress(0, 1, 0, keys.size() - 1));
 ```
 
@@ -83,7 +83,7 @@ st.addMergedRegion(new CellRangeAddress(0, 1, 0, keys.size() - 1));
 * 导出到excel 导出的路径以及导出文件名称在配置文件中定义
 * 在任何地方此方法可以作为组件调用的，只需要提供需要保存的数据，每一列的属性，以及对应的中文名称，每一列的宽度，文件路径，文件名称
 
-```
+```Java
 public HSSFWorkbook doExportResults(List<Map<String, Object>> list,
     List<String> keys, List<String> cnames, List<Integer> cellWidths,
     String excelPath, String fileName) {
