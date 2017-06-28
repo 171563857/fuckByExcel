@@ -41,7 +41,8 @@ style.setBottomBorderColor(HSSFColor.BLACK.index);
 ```
 style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);// 设置了背景色才有效果
 style.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
-    
+```
+
 给单元格设置字体：
 ```
 // 单元格字体
