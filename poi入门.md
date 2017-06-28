@@ -78,7 +78,7 @@ st.addMergedRegion(new CellRangeAddress(0, 1, 0, keys.size() - 1));
 注：合并方法最好写在最后面，不然有可能会影响到某些单元格添加单元格属性的操作
 
 下面是我写的一个根据传入的数据，把数据导出到excel的接口：
-```
+
 /**
  * 导出到excel 导出的路径以及导出文件名称在配置文件中定义
  * 在任何地方此方法可以作为组件调用的，只需要提供需要保存的数据，每一列的属性，以及对应的中文名称，每一列的宽度，文件路径，文件名称
@@ -96,6 +96,7 @@ st.addMergedRegion(new CellRangeAddress(0, 1, 0, keys.size() - 1));
  * @param fileName
  *            the name of the file in server
  */
+```
 public HSSFWorkbook doExportResults(List<Map<String, Object>> list,
     List<String> keys, List<String> cnames, List<Integer> cellWidths,
     String excelPath, String fileName) {
